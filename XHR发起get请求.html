@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    .one {
+        width: 300px;
+        height: 80px;
+        background-color: pink;
+    }
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <script>
+        let XHL = new XMLHttpRequest()
+        XHL.open('GET','http://api.github.com',)
+        // XHL.setRequestHeader('content-type','application/x-form-urlencoded')
+        XHL.send()
+        XHL.onreadystatechange=function(res){
+            if (XHL.readyState === 4 && XHL.status === 200){
+                // for (let key in res){
+                //     console.log(key,XHL.readyState)
+                //     console.log(XHL.responseText)
+                //     console.log(JSON.parse(XHL.responseText))
+                    
+                // }
+                console.log(Object.values(JSON.parse(XHL.responseText)))
+            }
+        }
+        // document.querySelector('body').innerHTML=XHL.responseText
+    </script>
+</body>
+</html>
